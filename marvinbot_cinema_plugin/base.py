@@ -31,7 +31,7 @@ class MarvinBotCinemaPlugin(Plugin):
 
     def setup_handlers(self, adapter):
         self.bot = adapter.bot
-        self.add_handler(CommandHandler('cine', self.on_cine_command, command_description='Allow to watch the movies availables'))
+        self.add_handler(CommandHandler('cine', self.on_cine_command, command_description='Allow to see what movies are now playing'))
 
 
     def setup_schedules(self, adapter):
