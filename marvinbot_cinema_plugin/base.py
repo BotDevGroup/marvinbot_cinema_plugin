@@ -47,7 +47,7 @@ class MarvinBotCinemaPlugin(Plugin):
 
         try:
             for num, movie in enumerate(movies, start=1):
-                movie_list.append("{} - {}".format(num, movie.strong.string))
+                movie_list.append("{} - {}".format(num, movie.strong.string.encode('iso-8859-1').decode('utf8')))
         except Exception as err:
             log.error("Parse error: {}".format(err))
 
