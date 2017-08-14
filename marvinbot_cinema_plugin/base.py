@@ -53,16 +53,3 @@ class MarvinBotCinemaPlugin(Plugin):
 
         message.reply_text(text="\n".join(movie_list), parse_mode='HTML') 
 
-
-   
-#cinema = requests.get("http://www.cinema.com.do/")
-#cine = bs(cinema.text, 'html.parser')
-
-#cine.select("li.text-center.img-container")
-#for peli in cine.select("li.text-center.img-container"):
-#   peli.strong.string
-
-#for num, movie in enumerate(movies, start=1):
-#    num, movie.strong.string
-
-
