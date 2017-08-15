@@ -49,10 +49,10 @@ class MarvinBotCinemaPlugin(Plugin):
         try:
             for num, movie in enumerate(movies, start=1):
                 movie_detail = ('<a href="{}">Detalles</a>').format(url+movie.a['href'])
-                movie_list.append(("{} - {}:  {}").format(num, movie.strong.string.encode('iso-8859-1').decode('utf8'), movie_detail))
+                movie_list.append(("{} - {}: 🎞 {}").format(num, movie.strong.string.encode('iso-8859-1').decode('utf8'), movie_detail))
         except Exception as err:
             log.error("Parse error: {}".format(err))
 
-        message.reply_text(text="\n".join(movie_list), parse_mode='HTML')
+        message.reply_text(text="\n".join(movie_list), parse_mode='HTML', disable_web_page_preview = True)
         
         
