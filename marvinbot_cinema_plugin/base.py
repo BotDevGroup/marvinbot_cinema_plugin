@@ -22,7 +22,7 @@ class MarvinBotCinemaPlugin(Plugin):
         return {
             'short_name': self.name,
             'enabled': True,
-            'base_url': 'https://cinema.com.do/'
+            'base_url': 'http://cinema.com.do/'
         }
 
     def configure(self, config):
@@ -40,16 +40,19 @@ class MarvinBotCinemaPlugin(Plugin):
     def on_cine_command(self, update, *args, **kwargs):
         log.info('Reply command caught')
         message = get_message(update)
-        r = requests.get("http://www.cinema.com.do/")
+        url = self.config.get('base_url')
+        r = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
         movies = soup.select("li.text-center.img-container")
         movie_list = []
 
         try:
             for num, movie in enumerate(movies, start=1):
-                movie_list.append("{} - {}".format(num, movie.strong.string.encode('iso-8859-1').decode('utf8')))
+                movie_detail = ('<a href="{}">Detalles</a>').format(url+movie.a['href'])
+                movie_list.append(("{} - {}:  {}").format(num, movie.strong.string.encode('iso-8859-1').decode('utf8'), movie_detail))
         except Exception as err:
             log.error("Parse error: {}".format(err))
 
-        message.reply_text(text="\n".join(movie_list), parse_mode='HTML') 
-
+        message.reply_text(text="\n".join(movie_list), parse_mode='HTML')
+        
+        
