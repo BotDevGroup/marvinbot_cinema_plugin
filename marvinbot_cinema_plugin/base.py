@@ -31,7 +31,7 @@ class MarvinBotCinemaPlugin(Plugin):
 
     def setup_handlers(self, adapter):
         self.bot = adapter.bot
-        self.add_handler(CommandHandler('cine', self.on_cine_command, command_description='Allow to see what movies are now playing'))
+        self.add_handler(CommandHandler('cine', self.on_cine_command, command_description='Allows the user to check which movies are now available in the movie theather.'))
 
 
     def setup_schedules(self, adapter):
@@ -48,10 +48,10 @@ class MarvinBotCinemaPlugin(Plugin):
 
         try:
             for num, movie in enumerate(movies, start=1):
-                movie_detail = ('<a href="{}">Detalles</a>').format(url+movie.a['href'])
+                movie_detail = ('<a href="{}">↗️</a>').format(url+movie.a['href'])
                 #for futures implementations
                 #movie_list.append(("{} - {}: 🎞 {}").format(num, movie.strong.string.encode('iso-8859-1').decode('utf8'), movie_detail))
-                movie_list.append(("🎬 {}: {}").format(movie.strong.string.encode('iso-8859-1').decode('utf8'), movie_detail))
+                movie_list.append(("🎬 {} {}").format(movie.strong.string.encode('iso-8859-1').decode('utf8'), movie_detail))
         except Exception as err:
             log.error("Parse error: {}".format(err))
 
