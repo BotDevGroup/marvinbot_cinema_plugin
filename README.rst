@@ -28,7 +28,8 @@ Plugin to know the availables movies in local theaters
 Features
 --------
 
-* TODO
+* For now, see a list of all the availables movies in Dominican cinemas executing the ```/cinema``` command.
+
 
 Credits
 ---------
