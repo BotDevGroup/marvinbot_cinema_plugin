@@ -24,7 +24,7 @@ pickleshare==0.7.4
 polling==0.3.0
 prompt-toolkit==1.0.15
 ptyprocess==0.5.2
-py==1.4.34
+py==1.10.0
 pycparser==2.19
 Pygments==2.4.2
 pymongo==3.9.0
